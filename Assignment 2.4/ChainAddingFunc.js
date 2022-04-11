@@ -6,7 +6,7 @@ function add(n){
     let res= function(b){
         return add(n+b);
     }
-    res.valueOf=()=> n;
+    res.toString=()=> n;
     return res;
     
 }

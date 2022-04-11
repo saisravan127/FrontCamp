@@ -2,12 +2,8 @@
 // http://www.codewars.com/kata/transportation-on-vacation
 
 function rentalCarCost(d) {
-    let res=40*d;
-    if(d<3)
-        return res;
-    if(d>=3 && d<7)
-       return res-20;
-    return res-50;
+    let discount=(d<3)?0:(d>=3 && d<7)?(20):50;
+    return 40*d-discount;
 }
 
 console.log(rentalCarCost(10));

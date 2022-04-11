@@ -10,4 +10,12 @@ function getMiddle(s)
     return s[Math.floor(s.length/2)];      
 }
 
+String.prototype.getMiddle=function(){
+    if(this.length%2==0){
+        let index=(this.length/2)-1;
+        return this.substring(index,index+2);
+     }
+     return s[Math.floor(this.length/2)]; 
+}
 console.log(getMiddle("sravan"));
+console.log("sravan".getMiddle());

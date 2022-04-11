@@ -3,14 +3,7 @@
 
 
 function printArray(array){
-    let str = "";
-    for(let i = 0; i < array.length; i++){
-    if(i != array.length - 1)
-     str += array[i].toString() + ",";
-    else
-      str += array[i].toString();
-    }
-    return str;
+    return array.join(",");
   }
 
 console.log(printArray(["h","e","l","l","o"]));
