@@ -10,11 +10,17 @@ sbutton.addEventListener("click",()=>{
     })
 })
 
-function renderVideos(details){
-    let i=1;
-    for(let vid of details){
-        buildtable(vid,i++);
-    }
+function fectchSearchResults(){
+    const value=document.querySelector("#search").value;
+    let link=`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAIUX2Nwyvw1W015ZmVaaOeNAaRwoo6UKA&type=video&part=snippet&maxResults=${maxResults}&q=${value}`;
+    document.querySelector(".container").innerHTML="";
+    return fetch(link).then((res)=>{
+        return res.json()
+    });
+}
+let details;
+function renderVideos(arr){
+    details=arr;
     display(1);
 }
 
@@ -34,13 +40,14 @@ function buildtable(details,i){
 }
 
 function display(id){
-    for (let i = 1; i <= 15; i++)
-        document.querySelector("#video" + i).style.display = "none";
+    document.querySelector(".container").innerHTML= "";
     let count=vidcount();
     while (Math.ceil(15 / count) < id)
         id--;
-    for (let i = (count * (id - 1)) + 1; i <= (id * count) && i <= 15; i++)
+    for (let i = (count * (id - 1))+1; i <= (id * count) && i <= 15; i++){
+        buildtable(details[i-1],i);
         document.querySelector("#video" + i).style.display = "block";
+    }
     pagination(Math.ceil(15 / count));
     document.querySelector("#page" + id).classList.add("active");
 
@@ -76,11 +83,3 @@ window.onresize = function () {
     display(document.querySelectorAll(".active")[0].getAttribute("id").substring(4));
 }
 
-function fectchSearchResults(){
-    const value=document.querySelector("#search").value;
-    let link=`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAIUX2Nwyvw1W015ZmVaaOeNAaRwoo6UKA&type=video&part=snippet&maxResults=${maxResults}&q=${value}`;
-    document.querySelector(".container").innerHTML="";
-    return fetch(link).then((res)=>{
-        return res.json()
-    });
-}
