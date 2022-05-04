@@ -2,10 +2,8 @@
 // http://www.codewars.com/kata/extract-nested-object-reference
 
 Object.prototype.hash = function(string) {
-    try {
-return eval(`this.${string}`)
-}
-catch(e){
-return undefined;
-}
+    var arr = string.split('.');
+    return arr.reduce(function(pv, cv){
+        return (pv) ? pv[cv] : pv;
+    }, this);
 }

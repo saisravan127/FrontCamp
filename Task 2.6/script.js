@@ -1,15 +1,10 @@
 let resTemplate=document.querySelector("#video-template").content;
-
+let maxResults=15;
 
 let sbutton=document.querySelector("#sbutton");
 
 sbutton.addEventListener("click",()=>{
-    const value=document.querySelector("#search").value;
-    document.querySelector(".container").innerHTML="";
-    let link=`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAIUX2Nwyvw1W015ZmVaaOeNAaRwoo6UKA&type=video&part=snippet&maxResults=15&q=${value}`;
-    fetch(link).then((res)=>{
-        return res.json()
-    }).then((res)=>{
+    fectchSearchResults().then((res)=>{
         console.log(res.items);
         renderVideos(res.items);
     })
@@ -79,4 +74,13 @@ function pagination(count){
 
 window.onresize = function () {
     display(document.querySelectorAll(".active")[0].getAttribute("id").substring(4));
+}
+
+function fectchSearchResults(){
+    const value=document.querySelector("#search").value;
+    let link=`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAIUX2Nwyvw1W015ZmVaaOeNAaRwoo6UKA&type=video&part=snippet&maxResults=${maxResults}&q=${value}`;
+    document.querySelector(".container").innerHTML="";
+    return fetch(link).then((res)=>{
+        return res.json()
+    });
 }
