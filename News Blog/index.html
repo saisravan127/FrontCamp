@@ -8,106 +8,78 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="header">
-        <div class="navbox">
-            <div class="navtext ssize">NEWS BLOG</div>
-            <div class="navtext xssize">WORLDWIDE NEWS</div> 
+    <header>
+        <div>
+            <h2>NEWS BLOG</h2>
+            <p>WORLDWIDE NEWS</p>
         </div>
+    </header>
     </div>
-    <div class="bodyy">
-        <div class="options">
-            <div class="categories con">
-                <div class="parentcon">
-                <div class="con1">SELECT CATEGORY
-                <!-- </div> -->
-                <!-- <div class="con2"> -->
-                    <select name="categories" id="options">
-                        <option value="All">All</option>
-                        <option value="Category One">Category 1</option>
-                        <option value="Category Two">Category 2</option>
-                        <option value="Category Three">Category 3</option>
-                    </select>  
-                </div> 
-                </div> 
+    <main>
+        <div class="newsHeader">
+            <div class="category">
+                SELECT CATEGORY
+                <select name="category">
+                    <option value="All">All</option>
+                    <option value="c1">Category One</option>
+                    <option value="c2">Category Two</option>
+                </select>
             </div>
-            <div class="allnews con">
-                <div class="emptydiv50"></div>
-                <p class="allnewsp">ALL NEWS</p>
+            <div class="allNews">ALL NEWS</div>
+            <div class="subscribe">
+                <span class="subInfo">SUBSCRIBE</span>
+                <div class="sub">
+                    <input type="email" placeholder="Email Address">
+                    <button class="subButton">Subscribe</button>
+                </div>
             </div>
-            <div class="subscribe con">
-                <div class="parentcon">
-                    <div class="con1">SUBSCRIBE
-                    <!-- </div> -->
-                    <!-- <div class="con2"> -->
-                        <input class="mail" type="email" size="1" placeholder="Email Address"><button class="sub">Subscribe</button>
-                    </div> 
-                    </div> 
-            </div>
-            
         </div>
         <hr>
-        <div class="stories">
-            <div class="story onestory">
-                <div class="images">
-                    <img src="story.webp" alt="story one" >
+        <div class="newsContent">
+            <section>
+                <img src="//dummyimage.com/150x150" alt="">
+                <div class="newsFeed">
+                    <div class="title"> <span class="mainTitle">Title One</span>
+                        <div class="about"><span class="aboutTitle">Posted on</span> 28 March, 2022
+                            <span class="aboutTitle"># Category:</span> Category One
+                        </div>
+                    </div>
+
+                    <div class="news">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ea, nihil unde aliquam saepe ullam nostrum iste impedit reiciendis magni cumque maiores accusamus sunt assumenda qui vero. Architecto, quidem soluta.</div>
+                    <button>Continue Reading</button>
                 </div>
-            <div class="storycontent">
-                <div class="titles">
-                        Title One
+            </section>
+            <hr a>
+            <section>
+                <img src="//dummyimage.com/150x150" alt="">
+                <div class="newsFeed">
+                    <div class="title"> <span class="mainTitle">Title Two</span>
+                        <div class="about"><span class="aboutTitle">Posted on</span> 27 March, 2022
+                            <span class="aboutTitle"># Category:</span> Category Two
+                        </div>
+                    </div>
+                    <div class="news">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, doloremque, corporis ratione molestiae nihil ut voluptatibus omnis id inventore blanditiis magnam distinctio libero rerum dignissimos deserunt! Quod aut ipsa nesciunt.</div>
+                    <button>Continue Reading</button>
                 </div>
-                <div class="details">
-                        Published on June 29, 2019 at 12:54PM || Category: Category One
+            </section>
+            <hr a>
+            <section>
+                <img src="//dummyimage.com/150x150" alt="">
+                <div class="newsFeed">
+                    <div class="title"> <span class="mainTitle">Title Three</span>
+                        <div class="about"><span class="aboutTitle">Posted on</span> 25 March, 2022
+                            <span class="aboutTitle"># Category:</span> Category One
+                        </div>
+                    </div>
+                    <div class="news">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, alias praesentium earum ipsum eius architecto reprehenderit. Vero iusto, voluptates id voluptate quidem necessitatibus molestiae. Porro qui delectus aliquam omnis minus?</div>
+                    <button>Continue Reading</button>
                 </div>
-                <div class="datas">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quisquam nam molestiae officia modi a aut fugit sed rerum ad.
-                </div>
-                <div class="continue">
-                    <button type="button">Continue Reading</button> 
-                </div>
-            </div>  
-            </div>
-            <hr>
-            <div class="story twostory">
-                <div class="images">
-                    <img src="story.webp" alt="story one" >
-                </div>
-                <div class="storycontent">
-                    <div class="titles">
-                        Title Two
-                    </div>
-                    <div class="details">
-                        Published on June 29, 2019 at 12:54PM || Category: Category One
-                    </div>
-                    <div class="datas">
-                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dignissimos, maxime molestias facere nobis repellat cum quam corporis laudantium consequatur?
-                    </div>
-                    <div class="continue">
-                        <button type="button">Continue Reading</button> 
-                    </div>
-                </div>  
-            </div>
-            <hr>
-            <div class="story threestory">
-                <div class="images">
-                    <img src="story.webp" alt="story one" >
-                </div>
-                <div class="storycontent">
-                    <div class="titles">
-                        Title Three
-                    </div>
-                    <div class="details">
-                        Published on June 29, 2019 at 12:54PM || Category: Category One
-                    </div>
-                    <div class="datas">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam perferendis fugiat voluptas at corrupti ipsam eos, sequi hic aliquam?
-                    </div>
-                    <div class="continue">
-                        <button type="button" >Continue Reading</button> 
-                    </div>
-                </div>  
-            </div>
-        </div> 
-    </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        &#169;NewsFeed 2019
+    </footer>
     <!-- <footer>
         &#169;NewsFeed 2019
     </footer> -->
