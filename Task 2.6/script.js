@@ -1,12 +1,12 @@
 let resTemplate=document.querySelector("#video-template").content;
 let maxResults=15;
-
+let details;
 let sbutton=document.querySelector("#sbutton");
 
 sbutton.addEventListener("click",()=>{
     fectchSearchResults().then((res)=>{
-        console.log(res.items);
-        renderVideos(res.items);
+        details=res.items;
+        rendervideos(1);
     })
 })
 
@@ -18,11 +18,8 @@ function fectchSearchResults(){
         return res.json()
     });
 }
-let details;
-function renderVideos(arr){
-    details=arr;
-    display(1);
-}
+
+
 
 function buildtable(details,i){
     let video=document.importNode(resTemplate, true);
@@ -39,17 +36,17 @@ function buildtable(details,i){
 
 }
 
-function display(id){
+function rendervideos(page_id){
     document.querySelector(".container").innerHTML= "";
     let count=vidcount();
-    while (Math.ceil(15 / count) < id)
-        id--;
-    for (let i = (count * (id - 1))+1; i <= (id * count) && i <= 15; i++){
+    while (Math.ceil(15 / count) < page_id)
+        page_id--;
+    for (let i = (count * (page_id - 1))+1; i <= (page_id * count) && i <= 15; i++){
         buildtable(details[i-1],i);
         document.querySelector("#video" + i).style.display = "block";
     }
-    pagination(Math.ceil(15 / count));
-    document.querySelector("#page" + id).classList.add("active");
+    renderpagination(Math.ceil(15 / count));
+    document.querySelector("#page" + page_id).classList.add("active");
 
 
 }
@@ -61,7 +58,7 @@ function vidcount() {
     return videoCount;
 }
 
-function pagination(count){
+function renderpagination(count){
     let pages=document.querySelector(".pagination");
     pages.textContent="";
     for (let i = 1; i <= count; i++) {
@@ -71,7 +68,7 @@ function pagination(count){
         btn.setAttribute("id", "page" + i);
         let pageId = i;
         btn.setAttribute("pageId", pageId)
-        btn.setAttribute("onclick", "display(" + pageId + ")");
+        btn.setAttribute("onclick", "rendervideos(" + pageId + ")");
         btn.textContent = i;
         page.appendChild(btn);
         pages.appendChild(page);
@@ -80,6 +77,6 @@ function pagination(count){
 }
 
 window.onresize = function () {
-    display(document.querySelectorAll(".active")[0].getAttribute("id").substring(4));
+    rendervideos(document.querySelectorAll(".active")[0].getAttribute("id").substring(4));
 }
 
