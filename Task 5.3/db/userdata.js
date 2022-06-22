@@ -1,10 +1,9 @@
 export let users=[
     {
-        "id":"1",
-        "login":"sravan",
-        "password":"abcdef",
-        "age":21,
-        "isDeleted":false
+        "id": "1",
+        "login": "sai",
+        "password": "abcdef1234",
+        "age": 21
     }
     
 ]
