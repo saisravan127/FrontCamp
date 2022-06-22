@@ -9,7 +9,6 @@ export const validateUser= (req,res,next)=>{
         return;
     }
     user.isDeleted=false;
-    user.age=parseInt(user.age,10);
     const index=users.findIndex(u => u.id===user.id);
     if(users.findIndex(u => u.id===user.id) !==-1){
         res.status(400).json({message: "User already exists"});
